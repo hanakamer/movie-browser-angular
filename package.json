@@ -1,0 +1,33 @@
+{
+  "name": "movie-blogger-angular",
+  "version": "1.0.0",
+  "description": "movie blogger",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanakamer/movie-blogger-angular.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hanakamer/movie-blogger-angular/issues"
+  },
+  "homepage": "https://github.com/hanakamer/movie-blogger-angular#readme",
+  "devDependencies": {
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "css-loader": "^0.23.1",
+    "json-loader": "^0.5.4",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-merge": "^0.14.0"
+  },
+  "dependencies": {
+    "angular": "^1.5.7"
+  }
+}
