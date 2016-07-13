@@ -1,4 +1,4 @@
-import {app} from '..app/app'
+import {app} from '../app/app'
 import slug from 'slug'
 
 export let movieService = function ($http) {

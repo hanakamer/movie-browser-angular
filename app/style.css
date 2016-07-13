@@ -86,3 +86,8 @@ a {
 .trailer-btn{
   float:right;
 }
+
+.rating-circle-container{
+  float: left;
+  width: 150px;
+}
