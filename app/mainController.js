@@ -1,7 +1,37 @@
-import {app} from '../app/app'
-import {movieService} from '../app/movieService'
+import {app} from '../app/app';
+import {movieService} from '../app/movieService';
 
 export let MainController =  function(movieService){
+  let self = this;
+  self.page = 1;
+  let onComplete = function(data){
+    self.movies = data.results;
+    self.total_pages= data.total_pages;
+    console.log(data)
+    // $location.path("/ilce/"+self. district)
+  }
+
+
+  let onError = function(reason){
+    self.error = "filmler yuklenemedi"
+  }
+
+
+  let loadMovies =function (page){
+      movieService.getNowPlaying(page)
+        .then(onComplete, onError);
+  }
+
+  self.nextPage = function(page){
+    self.page += 1;
+    console.log(page)
+    movieService.getNowPlaying(page)
+      .then(onComplete, onError);
+  }
+
+  loadMovies(self.page);
+
+
 
   // var canvas = document.getElementById("canvas");
   // var ctx = canvas.getContext("2d");
