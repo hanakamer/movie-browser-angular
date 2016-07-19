@@ -1,7 +1,6 @@
 import angular from 'angular';
-import 'angular-utils-pagination';
 import 'angular-route';
-export let app = angular.module('movieApp', ['ngRoute', 'angularUtils.directives.dirPagination']);
+export let app = angular.module('movieApp', ['ngRoute']);
 app.filter('range', function(){
   return function(input, total) {
     total = parseInt(total);
@@ -20,6 +19,12 @@ app.config(function($routeProvider){
       controller:"MainController",
       controllerAs:"self"
     })
+    // .when("/page/:page", {
+    //    templateUrl: "main.html",
+    //    controller: "MoviesController",
+    //    controllerAs: "self"
+    //  })
     .otherwise({redirectTo: "/main"});
+
 
 })

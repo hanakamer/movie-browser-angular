@@ -1,4 +1,4 @@
-<div class="results">
+<div class="results" >
   <div class="movie-container" ng-repeat="movie in self.movies" >
     <div class="movie-content">
       <div class="movie-title" ng-bind="movie.title"></div>
@@ -9,10 +9,11 @@
   </div>
 
   <div class="pagination-continer">
-
-      <ul class="pagination-pages" ng-repeat="page in [] | range:self.total_pages">
-        <li > <a href="javascript: ;" ng-click="self.nextPage(page+1)" ng-bind="page+1"></a></li>
-      </ul>
+      <a href="javascript:;" ng-click="self.Prev()" ng-hide="self.page<2"> << previous </a>
+      <p>
+        {{self.page}} of {{self.total_pages}}
+      </p>
+      <a href="javascript:;" ng-click="self.Next()" ng-hide="self.page>self.total_pages-1"> next>> </a>
 
 
 

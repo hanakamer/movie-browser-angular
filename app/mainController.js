@@ -1,14 +1,16 @@
+
 import {app} from '../app/app';
 import {movieService} from '../app/movieService';
 
-export let MainController =  function(movieService){
+export let MainController =  function(movieService, $location, $routeParams){
   let self = this;
   self.page = 1;
+
+
   let onComplete = function(data){
     self.movies = data.results;
     self.total_pages= data.total_pages;
-    console.log(data)
-    // $location.path("/ilce/"+self. district)
+
   }
 
 
@@ -17,19 +19,22 @@ export let MainController =  function(movieService){
   }
 
 
-  let loadMovies =function (page){
-      movieService.getNowPlaying(page)
-        .then(onComplete, onError);
-  }
-
-  self.nextPage = function(page){
-    self.page += 1;
-    console.log(page)
-    movieService.getNowPlaying(page)
+  self.loadMovies =function (){
+    movieService.getNowPlaying(self.page)
       .then(onComplete, onError);
   }
+  self.Prev = function(){
+    self.page -=1;
+    self.loadMovies();
+  }
 
-  loadMovies(self.page);
+  self.Next = function(){
+    self.page +=1;
+    self.loadMovies();
+  }
+  self.loadMovies();
+  movieService.getNowPlaying($routeParams.page)
+  .then(onComplete, onError);
 
 
 
