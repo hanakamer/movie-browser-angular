@@ -14,7 +14,7 @@ app.filter('range', function(){
 })
 app.config(function($routeProvider){
   $routeProvider
-    .when("/main",{
+    .when("/main/",{
       templateUrl:"main.html",
       controller:"MainController",
       controllerAs:"self"
@@ -24,7 +24,12 @@ app.config(function($routeProvider){
     //    controller: "MoviesController",
     //    controllerAs: "self"
     //  })
-    .otherwise({redirectTo: "/main"});
+    .when("/movie/:id",{
+      templateUrl:"detail.html",
+      controller:"DetailController",
+      controllerAs:"self"
+    })
+    .otherwise({redirectTo: "/main/"});
 
 
 })

@@ -5,6 +5,7 @@
       <div class="movie-img-container">
           <img class="movie-img" ng-src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}">
       </div>
+      <a href="javascript:;" class="movie-link" ng-click="self.goToMovie(movie.id)"></a>
     </div>
   </div>
 

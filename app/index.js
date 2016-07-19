@@ -3,3 +3,4 @@ import '../app/style.css';
 
 require("font-awesome-webpack");
 import '../app/mainController';
+import '../app/detailController';
