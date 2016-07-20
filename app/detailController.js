@@ -2,9 +2,11 @@
 import {app} from '../app/app';
 import {movieService} from '../app/movieService';
 
-export let DetailController =  function(movieService, $location, $routeParams){
+export let DetailController =  function(movieService, $location, $routeParams,Lightbox){
   let self = this;
   let id = $routeParams.id
+
+
 
   let movieDetail = function(id){
     movieService.getMovie(id)
@@ -14,17 +16,21 @@ export let DetailController =  function(movieService, $location, $routeParams){
       if(response.imdbRating){
         drawCanvas(response.imdbRating)
       }
-    }).then(function(title){
+    })
+    .then(function(title){
       title =self.title
-      movieService.getTrailer(title).then(function(response){
-        self.youtubeId = response.videoId;
+      movieService.getTrailer(title)
+      .then(function(response){
+        self.youtubeId = response.id.videoId;
+        self.youtubeThumb =response.snippet.thumbnails.default;
       });
     });
   }
+
   movieDetail(id);
 
-  var canvas = document.getElementById("canvas");
-  var ctx = canvas.getContext("2d");
+  let canvas = document.getElementById("canvas");
+  let ctx = canvas.getContext("2d");
   ctx.scale( window.devicePixelRatio, window.devicePixelRatio);
 
   function drawCanvas(rating) {
@@ -40,10 +46,8 @@ export let DetailController =  function(movieService, $location, $routeParams){
     ctx.lineWidth = 3;
     ctx.strokeStyle = 'grey';
     ctx.stroke();
-
-
-
   }
+
 
 };
 

@@ -8,6 +8,10 @@ a {
   text-decoration: none;
 }
 
+.cb{
+  clear: both;
+}
+
 .container{
   width: 960px;
   margin:0 auto;
@@ -53,7 +57,7 @@ a {
   float: left;
 }
 .main-img{
-  height:200px ;
+  height:400px ;
   width: 80%;
   background: black;
 }
@@ -87,13 +91,26 @@ a {
   padding: 0 20px;
   color:#373737;
 }
-.trailer-btn{
-  float:right;
+
+.detail-items{
+  list-style: none;
 }
+.detail-title{
+  width: 120px;
+  display: inline-block;
+}
+
 
 .rating-circle-container{
   float: left;
   width: 150px;
+  position:relative;
+}
+
+.rating-circle-text{
+  position: absolute;
+  top: 37px;
+  left: 50px;
 }
 
 /*main page*/
@@ -128,6 +145,10 @@ a {
   top:0;
   left: 0;
   z-index: 1;
+}
+.trailer-container{
+  margin-top:20px;
+  text-align: center;
 }
 .pagination-pages{
   list-style: none;

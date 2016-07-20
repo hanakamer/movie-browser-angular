@@ -1,6 +1,9 @@
 import angular from 'angular';
 import 'angular-route';
-export let app = angular.module('movieApp', ['ngRoute']);
+import 'angular-ui-bootstrap';
+import 'angular-bootstrap-lightbox';
+
+export let app = angular.module('movieApp', ['ngRoute','ui.bootstrap', 'bootstrapLightbox']);
 app.filter('range', function(){
   return function(input, total) {
     total = parseInt(total);
@@ -30,6 +33,8 @@ app.config(function($routeProvider){
       controllerAs:"self"
     })
     .otherwise({redirectTo: "/main/"});
+});
 
-
+app.config(function(LightboxProvider){
+  LightboxProvider.templateUrl = 'lightbox-modal.html'
 })

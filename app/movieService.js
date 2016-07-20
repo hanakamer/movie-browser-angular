@@ -52,9 +52,10 @@ export let movieService = function ($http) {
     return $http.get(youtube_url, {params: {youtube: true}}).then(function(response){
 
       let firstResult = response.data.items[0];
+      console.log(firstResult);
       sourceId =firstResult.id;
       console.log(sourceId)
-      return sourceId;
+      return firstResult;
     }).catch(function(error){
       console.log(error)
     })

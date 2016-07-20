@@ -1,71 +1,64 @@
-<div class="images-container">
-<div class="">
+<div class="main-detail-container">
+  <div class="images-container">
 
-</div>
-  <div class="main-img">
-
-    <img class="main-img-content" ng-src="{{self.movie.Poster}}"alt="" />
-  </div>
-  <object width="420" height="315"
-data="http://www.youtube.com/embed/{{self.youtubeId}}">
-</object>
-  <div class="btn-container">
-    <a href="#" class="btn trailer-btn"> Watch Trailer</a>
-  </div>
-
-  <div class="preview-images">
-
-  </div>
-</div>
-<div class="info-container">
-  <div class="info-content">
-    <div class="info-header">
-      <p ng-bind="self.movie.Title"></p>
+    <div class="main-img">
+      <img class="main-img-content" ng-src="{{self.movie.Poster}}"alt="" />
     </div>
-    <div class="info-detail-container">
-      <p class="info-description" ng-bind="self.movie.Plot">
-      </p>
-      <div class="details">
-        <div class="rating-circle-container">
-            <canvas id="canvas"  class="playable-canvas"></canvas>
-        </div>
-        <ul>
-          <li class="detail-item">
-            <span class="detail-title">Metascore</span>
-            <span class="detail-value" ng-bind="self.movie.Metascore"></span>
-          </li>
-          <li class="detail-item">
-            <span class="detail-title">IMDB rating</span>
-            <span class="detail-value" ng-bind="self.movie.imdbRating"></span>
-          </li>
-          <li class="detail-item">
-            <span class="detail-title">IMDB votes</span>
-            <span class="detail-value" ng-bind="self.movie.imdbVotes"></span>
-          </li>
-          <li class="detail-item">
-            <span class="detail-title">Genre</span>
-            <span class="detail-value" ng-bind="self.movie.Genre"></span>
-          </li>
-          <li class="detail-item">
-            <span class="detail-title"> Release Date</span>
-            <span class="detail-value" ng-bind="self.movie.Released"></span>
-          </li>
-          <li class="detail-item">
-            <span class="detail-title">Duration</span>
-            <span class="detail-value" ng-bind="self.movie.Runtime"></span>
-          </li>
-        </ul>
+  </div>
+  <div class="info-container">
+    <div class="info-content">
+      <div class="info-header">
+        <p ng-bind="self.movie.Title"></p>
+      </div>
+      <div class="info-detail-container">
+        <p class="info-description" ng-bind="self.movie.Plot"></p>
+        <div class="details">
+          <div class="rating-circle-container" >
+              <p class="rating-circle-text" ng-if="self.movie.imdbRating !== 'N/A'" ng-bind="self.movie.imdbRating"></p>
+              <canvas id="canvas"  class="playable-canvas"></canvas>
+          </div>
+          <ul class="detail-items">
+            <li class="detail-item">
+              <span class="detail-title">Metascore</span>
+              <span class="detail-value" ng-bind="self.movie.Metascore"></span>
+            </li>
+            <li class="detail-item">
+              <span class="detail-title">IMDB rating</span>
+              <span class="detail-value" ng-bind="self.movie.imdbRating"></span>
+            </li>
+            <li class="detail-item">
+              <span class="detail-title">IMDB votes</span>
+              <span class="detail-value" ng-bind="self.movie.imdbVotes"></span>
+            </li>
+            <li class="detail-item">
+              <span class="detail-title">Genre</span>
+              <span class="detail-value" ng-bind="self.movie.Genre"></span>
+            </li>
+            <li class="detail-item">
+              <span class="detail-title"> Release Date</span>
+              <span class="detail-value" ng-bind="self.movie.Released"></span>
+            </li>
+            <li class="detail-item">
+              <span class="detail-title">Duration</span>
+              <span class="detail-value" ng-bind="self.movie.Runtime"></span>
+            </li>
+            <li class="detail-item">
+              <span class="detail-title">Actors</span>
+              <span class="detail-value" ng-bind="self.movie.Actors"></span>
+            </li>
+          </ul>
 
+        </div>
+      </div>
       </div>
     </div>
-    <div class="actors-container" ng-bind ="self.movie.Actors">
-
-
-
-
-
-    </div>
-
   </div>
+</div>
+<div class="cb">
+
+</div>
+<div class="trailer-container">
+  <object class="trailer-content" width="420" height="315" data="http://www.youtube.com/embed/{{self.youtubeId}}">
+</object>
 
 </div>
