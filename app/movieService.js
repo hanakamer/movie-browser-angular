@@ -5,7 +5,9 @@ import $ from 'jquery';
 export let movieService = function ($http) {
   let api_key = "e4f84639131d542ce21dc31295786c10";
   let themoviedb_base = "http://api.themoviedb.org/3/";
-  let omd_base = "http://www.omdbapi.com/"
+  let omd_base = "http://www.omdbapi.com/";
+  let youtube_base ="https://www.googleapis.com/youtube/v3/";
+  let youtube_api_key = "AIzaSyDJf2J92R87tQpPmzcKOphJGUwOlFfR-Is"
   let now_playing ="movie/now_playing";
   let backdrop_path ='';
   let movie_list=[];
@@ -43,7 +45,22 @@ export let movieService = function ($http) {
       })
 
   }
+  let getTrailer = function(query){
+    let sourceId = '';
+    let keyword = query + '+trailer';
+    let youtube_url =youtube_base+'search?part=snippet&order=relevance&q='+keyword+'&key='+youtube_api_key;
+    return $http.get(youtube_url, {params: {youtube: true}}).then(function(response){
+
+      let firstResult = response.data.items[0];
+      sourceId =firstResult.id;
+      console.log(sourceId)
+      return sourceId;
+    }).catch(function(error){
+      console.log(error)
+    })
+  }
   return {
+    getTrailer: getTrailer,
     getMovie: getMovie,
     getNowPlaying: getNowPlaying,
     movie_list: movie_list

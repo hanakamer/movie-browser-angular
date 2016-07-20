@@ -5,17 +5,22 @@ import {movieService} from '../app/movieService';
 export let DetailController =  function(movieService, $location, $routeParams){
   let self = this;
   let id = $routeParams.id
-  let imdb_rating;
+
   let movieDetail = function(id){
     movieService.getMovie(id)
     .then(function(response){
       self.movie = response;
+      self.title = response.Title;
       if(response.imdbRating){
         drawCanvas(response.imdbRating)
       }
-    });;
+    }).then(function(title){
+      title =self.title
+      movieService.getTrailer(title).then(function(response){
+        self.youtubeId = response.videoId;
+      });
+    });
   }
-
   movieDetail(id);
 
   var canvas = document.getElementById("canvas");

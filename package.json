@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "angular": "^1.5.7",
+    "angular-bootstrap-lightbox": "^0.12.0",
     "angular-route": "^1.5.7",
     "font-awesome-webpack": "0.0.4",
     "hidpi-canvas": "git+https://github.com/jondavidjohn/hidpi-canvas-polyfill.git",
