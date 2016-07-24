@@ -22,16 +22,37 @@ app.config(function($routeProvider){
       controller:"MainController",
       controllerAs:"self"
     })
-    // .when("/page/:page", {
-    //    templateUrl: "main.html",
-    //    controller: "MoviesController",
-    //    controllerAs: "self"
-    //  })
+    .when("/page/:page", {
+       templateUrl: "main.html",
+       controller: "PagesController",
+       controllerAs: "self"
+     })
     .when("/movie/:id",{
       templateUrl:"detail.html",
       controller:"DetailController",
       controllerAs:"self"
     })
+    .when("/search/",{
+      templateUrl: "search.html",
+      controller: "SearchController",
+      controllerAs: "self"
+    })
+    .when("/search/:query/:page",{
+      templateUrl:"search.html",
+      controller:"SearchController",
+      controllerAs:"self"
+    })
+    .when("/genres/",{
+      templateUrl:"genres.html",
+      controller:"GenresController",
+      controllerAs:"self"
+    })
+    .when("/genre/:genre_name/:genre_id/:page",{
+      templateUrl:"main.html",
+      controller:"GenreController",
+      controllerAs:"self"
+    })
+
     .otherwise({redirectTo: "/main/"});
 });
 

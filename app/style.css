@@ -83,12 +83,17 @@ a {
 .btn-container{
   margin-top: 30px;
 }
+.std-container{
+    height: 50px;
+    display: inline-block;
+    line-height: 50px;
+    padding: 0 20px;
+    border:none;
+    font-weight: bold;
+    font-size: 24px;
+}
 .btn{
-  height: 30px;
   background: #FAE807;
-  display: inline-block;
-  line-height: 30px;
-  padding: 0 20px;
   color:#373737;
 }
 
@@ -153,4 +158,12 @@ a {
 .pagination-pages{
   list-style: none;
   display: inline-block;
+}
+
+.search-container{
+  height: 200px;
+  text-align: center;
+}
+.search-content{
+  line-height: 200px;
 }

@@ -8,7 +8,8 @@ export let movieService = function ($http) {
   let omd_base = "http://www.omdbapi.com/";
   let youtube_base ="https://www.googleapis.com/youtube/v3/";
   let youtube_api_key = "AIzaSyDJf2J92R87tQpPmzcKOphJGUwOlFfR-Is"
-  let now_playing ="movie/now_playing";
+  let now_playing = "movie/now_playing";
+  let search = "search/movie?query=";
   let backdrop_path ='';
   let movie_list=[];
 
@@ -19,26 +20,18 @@ export let movieService = function ($http) {
           movie_list.push(response.data.results)
           return response.data
         })
-
   }
-
 
   let getMovie = function(id){
     return $http.get(themoviedb_base+"movie/"+ id + "?api_key="+ api_key)
     .then(function(response){
-
         self.imdb_id = response.data.imdb_id;
-
       })
       .then(function(imdb_id){
-
         imdb_id = self.imdb_id
         return $http.get(omd_base+"?i="+ imdb_id + "&plot=long&r=json")
         // return $http.get(themoviedb_base + "find/" + imdb_id + "?external_source=imdb_id"+ "&api_key="+ api_key)
-
         .then(function(response){
-
-          console.log(response.data)
           return response.data;
 
         })
@@ -50,17 +43,42 @@ export let movieService = function ($http) {
     let keyword = query + '+trailer';
     let youtube_url =youtube_base+'search?part=snippet&order=relevance&q='+keyword+'&key='+youtube_api_key;
     return $http.get(youtube_url, {params: {youtube: true}}).then(function(response){
-
       let firstResult = response.data.items[0];
-      console.log(firstResult);
       sourceId =firstResult.id;
-      console.log(sourceId)
       return firstResult;
     }).catch(function(error){
       console.log(error)
     })
   }
+  let searchMovie = function(query, page){
+    movie_list=[];
+    let request_url = themoviedb_base + search + query + "&page="+ page + "&api_key="+ api_key;
+    return $http.get(request_url).then(function(response){
+      movie_list.push(response.data.results)
+      return response.data
+    })
+  }
+  let getGenre = function(){
+    movie_list=[];
+    return $http.get (themoviedb_base+"genre/movie/list" + "?api_key="+ api_key).then(function(response){
+      movie_list.push(response.data.genres)
+      console.log(movie_list)
+      return response.data
+    })
+  }
+
+  let getListOfGenre = function(genre_id, page){
+    movie_list = [];
+    let requst_url = themoviedb_base + "genre/"+genre_id+"/movies" + "?page="+ page + "&api_key="+ api_key;
+    return $http.get (requst_url).then(function(response){
+      movie_list.push(response.data.results)
+      return response.data
+    })
+  }
   return {
+    getListOfGenre :getListOfGenre,
+    getGenre: getGenre,
+    searchMovie: searchMovie,
     getTrailer: getTrailer,
     getMovie: getMovie,
     getNowPlaying: getNowPlaying,
