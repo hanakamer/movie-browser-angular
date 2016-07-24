@@ -1,12 +1,11 @@
-
 import {app} from '../app/app';
 import {movieService} from '../app/movieService';
 
-export let DetailController =  function(movieService, $location, $routeParams,Lightbox){
+export let DetailController =  function(movieService, $location, $routeParams){
   let self = this;
-  let id = $routeParams.id
-
-
+  let canvas = document.getElementById("canvas");
+  let ctx = canvas.getContext("2d");
+  let id = $routeParams.id;
 
   let movieDetail = function(id){
     movieService.getMovie(id)
@@ -27,12 +26,6 @@ export let DetailController =  function(movieService, $location, $routeParams,Li
     });
   }
 
-  movieDetail(id);
-
-  let canvas = document.getElementById("canvas");
-  let ctx = canvas.getContext("2d");
-  ctx.scale( window.devicePixelRatio, window.devicePixelRatio);
-
   function drawCanvas(rating) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.beginPath();
@@ -47,6 +40,9 @@ export let DetailController =  function(movieService, $location, $routeParams,Li
     ctx.strokeStyle = 'grey';
     ctx.stroke();
   }
+
+  movieDetail(id);
+  ctx.scale( window.devicePixelRatio, window.devicePixelRatio);
 
 
 };

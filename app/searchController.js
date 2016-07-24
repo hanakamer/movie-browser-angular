@@ -1,4 +1,3 @@
-
 import {app} from '../app/app';
 import {movieService} from '../app/movieService';
 
@@ -27,7 +26,7 @@ export let SearchController =  function(movieService, $location, $routeParams){
 
 
   self.goToMovie = function(id){
-    $location.path('/movie/'+id)
+    $location.path('/movie/'+id);
   }
 
   self.Prev = function(){

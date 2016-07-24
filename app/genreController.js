@@ -1,10 +1,8 @@
-
 import {app} from '../app/app';
 import {movieService} from '../app/movieService';
 
 export let GenreController =  function(movieService, $location, $routeParams){
   let self = this;
-
   self.genre_id = parseInt($routeParams.genre_id);
   self.genre_name = $routeParams.genre_name;
   self.page = $routeParams.page;

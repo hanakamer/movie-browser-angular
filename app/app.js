@@ -7,14 +7,13 @@ export let app = angular.module('movieApp', ['ngRoute','ui.bootstrap', 'bootstra
 app.filter('range', function(){
   return function(input, total) {
     total = parseInt(total);
-
     for (let i=0; i<total; i++) {
       input.push(i);
     }
-
     return input;
   }
-})
+});
+
 app.config(function($routeProvider){
   $routeProvider
     .when("/main/",{

@@ -1,18 +1,13 @@
-
 import {app} from '../app/app';
-import {movieService} from '../app/movieService';
 
-export let NavigationController =  function(movieService, $location, $routeParams){
+export let NavigationController =  function($location){
   let self = this;
   self.search = function(){
-    $location.path('/search/')
+    $location.path('/search/');
   }
   self.genre = function(){
-    $location.path('/genres/')
+    $location.path('/genres/');
   }
-
-
-
 };
 
 app.controller("NavigationController", NavigationController)

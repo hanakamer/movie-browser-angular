@@ -30,10 +30,8 @@ export let movieService = function ($http) {
       .then(function(imdb_id){
         imdb_id = self.imdb_id
         return $http.get(omd_base+"?i="+ imdb_id + "&plot=long&r=json")
-        // return $http.get(themoviedb_base + "find/" + imdb_id + "?external_source=imdb_id"+ "&api_key="+ api_key)
         .then(function(response){
           return response.data;
-
         })
       })
 
@@ -50,20 +48,20 @@ export let movieService = function ($http) {
       console.log(error)
     })
   }
+  
   let searchMovie = function(query, page){
     movie_list=[];
     let request_url = themoviedb_base + search + query + "&page="+ page + "&api_key="+ api_key;
     return $http.get(request_url).then(function(response){
-      movie_list.push(response.data.results)
-      return response.data
+      movie_list.push(response.data.results);
+      return response.data;
     })
   }
   let getGenre = function(){
     movie_list=[];
     return $http.get (themoviedb_base+"genre/movie/list" + "?api_key="+ api_key).then(function(response){
       movie_list.push(response.data.genres)
-      console.log(movie_list)
-      return response.data
+      return response.data;
     })
   }
 
@@ -71,8 +69,8 @@ export let movieService = function ($http) {
     movie_list = [];
     let requst_url = themoviedb_base + "genre/"+genre_id+"/movies" + "?page="+ page + "&api_key="+ api_key;
     return $http.get (requst_url).then(function(response){
-      movie_list.push(response.data.results)
-      return response.data
+      movie_list.push(response.data.results);
+      return response.data;
     })
   }
   return {
