@@ -4,8 +4,8 @@ import $ from 'jquery';
 
 export let movieService = function ($http) {
   let api_key = "e4f84639131d542ce21dc31295786c10";
-  let themoviedb_base = "http://api.themoviedb.org/3/";
-  let omd_base = "http://www.omdbapi.com/";
+  let themoviedb_base = "https://api.themoviedb.org/3/";
+  let omd_base = "https://www.omdbapi.com/";
   let youtube_base ="https://www.googleapis.com/youtube/v3/";
   let youtube_api_key = "AIzaSyDJf2J92R87tQpPmzcKOphJGUwOlFfR-Is"
   let now_playing = "movie/now_playing";
