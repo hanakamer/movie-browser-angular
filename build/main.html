@@ -9,11 +9,11 @@
     </div>
   </div>
 
-  <div class="pagination-continer">
-      <a href="javascript:;" ng-click="self.Prev()" ng-hide="self.page<2"> << previous </a>
-      <p>
+  <div class="pagination-container">
+      <a href="javascript:;" ng-click="self.Prev()" ng-hide="self.page<2" class="pagination-nav"> <i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
+      <span class="pagination-current">
         {{self.page}} of {{self.total_pages}}
-      </p>
-      <a href="javascript:;" ng-click="self.Next()" ng-hide="self.page>self.total_pages-1"> next>> </a>
+      </span>
+      <a href="javascript:;" ng-click="self.Next()" ng-hide="self.page>self.total_pages-1" class="pagination-nav"> <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
   </div>
 </div>

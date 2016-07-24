@@ -155,15 +155,47 @@ a {
   margin-top:20px;
   text-align: center;
 }
+.pagination-container{
+  height: 50px;
+  line-height: 50px;
+  color: grey;
+  font-size: 24px;
+  margin: 20px auto;
+  text-align: center;
+}
+.pagination-current{
+  width:50px;
+}
+.pagination-nav{
+    color: grey;
+}
+
+.pagination-nav:hover{
+  color: #FAE807;
+  opacity: 0.5;
+}
+
 .pagination-pages{
   list-style: none;
   display: inline-block;
 }
 
 .search-container{
-  height: 200px;
+  height: 150px;
   text-align: center;
 }
 .search-content{
-  line-height: 200px;
+  line-height: 150px;
+}
+.genre-container{
+  float: left;
+  width:20%;
+  text-align: center;
+}
+.genre{
+  font-size: 20px;
+  color:grey;
+}
+.genre:hover{
+  font-size: 23px;
 }

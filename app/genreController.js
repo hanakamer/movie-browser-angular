@@ -40,8 +40,6 @@ export let GenreController =  function(movieService, $location, $routeParams){
   loadMovies($routeParams.genre_id);
 
 
-
-
 };
 
 app.controller("GenreController", GenreController)
